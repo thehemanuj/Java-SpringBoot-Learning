@@ -1,8 +1,12 @@
 package org.ayushshukla;
 
-@Component
-public class Laptop implements Computer{
+import org.springframework.stereotype.Component;
 
+@Component
+public class Desktop implements Computer{
+    public Desktop(){
+        System.out.println("Desktop object created");
+    }
 
     @Override
     public void boot() {
