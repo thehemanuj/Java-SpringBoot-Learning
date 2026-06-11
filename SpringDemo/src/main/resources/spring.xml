@@ -5,10 +5,10 @@
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 <!-- bean definitions here -->
-       <bean id ="alien" class="org.ayushshukla.Alien">
+       <bean id ="alien" class="org.ayushshukla.springdemo.Alien">
               <property name="laptop" ref="laptop"></property>
               <constructor-arg name="laptop" ref="laptop"/>
               <constructor-arg name="copy"
        </bean>
-       <bean id ="laptop" class="org.ayushshukla.Laptop"></bean>
+       <bean id ="laptop" class="org.ayushshukla.springdemo.Laptop"></bean>
 </beans>
