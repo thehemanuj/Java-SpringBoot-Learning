@@ -1,14 +1,15 @@
-package org.ayushshukla;
+package org.ayushshukla.springdemo;
 
-import org.ayushshukla.config.Config;
+import org.ayushshukla.springdemo.config.Config;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Hello world!
  *
  */
+
+// @Qualifier > @Primary
 public class App 
 {
     public static void main( String[] args )
@@ -17,9 +18,9 @@ public class App
         Alien alien = context.getBean("alien",Alien.class);
         alien.code();
 
-        Desktop desktop = context.getBean("desktop1",Desktop.class);
+        Desktop desktop = context.getBean("desktop",Desktop.class);
         desktop.boot();
-        Desktop desktop1 = context.getBean("desktop1",Desktop.class);
+        Desktop desktop1 = context.getBean("desktop",Desktop.class);
         desktop1.boot();
 
 
