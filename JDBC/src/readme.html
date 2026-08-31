@@ -1,0 +1,74 @@
+<h1>What have we learnt here?</h1>
+<ul>
+    <li><a href="#jdbc">How to create JDBC connection</a></li>
+    <li><a href="#create-jdbc">Steps to create JDBC connection</a></li>
+    <li><a>Result Set</a></li>
+    <li><a>Statement</a></li>
+    <li><a>Prepared Statements</a></li>
+</ul>
+
+<br>
+
+<h2 id="jdbc">1. JDBC</h2>
+
+In this section we will be learning about what is jdbc and why do we use it,
+JDBC stands for Java Database Connectivity and it's a code or architecture that allows us to connect
+the Database to the Code(Application). We do this to make our data permanent and save it in the database
+otherwise the data will be wiped off with every session.
+
+The basic step is to first get the Drivers from the dependency platform(here we have used Maven to download our dependency)
+and we have downloaded the MySql drivers. After that we need to reload the pom.xml file to get the dependency in our code.
+<br> <br>Not to forget thing , we need to keep the MySql Engine running in our system.
+
+
+<h2 id="create-jdbc">2. Create JDBC</h2>
+
+Now since we have JDBC drivers in our system , we can learn how to create a connection with the Database.
+
+The Steps for the same are:
+<ul>
+    <li>Import the libraries</li>
+    <li>Load the drivers &rarr; This is not needed with latest JDK</li>
+    <li>Register the Driver</li>
+    <li>Create Connection</li>
+    <li>Create Statement</li>
+    <li>Execute Statement</li>
+    <li>Close the connection</li>
+</ul>
+
+<h5>Importing the libraries
+</h5>
+<code>import java.sql.*;</code>
+
+
+<h5>Loading the drivers</h5>
+This is done by reloading the pom.xml files and getting the necessary dependency.
+
+<h5>Registering the drivers
+</h5>
+This is an optional step and we can leave it for now and is not needed for higher JDK.
+
+
+<h5>Creating a connection
+</h5>
+for this we need 3 main components which are
+<ol>
+    <li>Username</li>
+    <li>Password</li>
+    <li>url</li>
+</ol>
+ Username is often the name of the account that we use to get into the sql
+its something like <code>root</code>
+
+Password is ofcourse your password to log into the database
+
+url is the main entry point which builds the connection and its something like
+
+<code>"jdbc:mysql://127.0.0.1:3306/springboot"</code> <br><br>
+<code>"jdbc:{Server Engine}://{url where server is running}/{name of db}"</code>
+
+After the above steps , we need to get the connection
+
+<code>Connection con = DriverManager.getConnection(username,password,url);</code>
+
+If con is not null then this means that we have got the connection.

@@ -8,27 +8,26 @@ public class DemoJdbc {
         // create statement
         // execute statement
         // close connection
+        //Class.forName("org.mysql.Driver");
 
-        String url="jdbc:mysql://localhost:3306/ayush";
-        String user="laravel";
-        String password="Ayush@39";
-        //Class.forName("org.postgresql.Driver");
-        Connection con = DriverManager.getConnection(url,user,password);
-        System.out.println("Connection Established");
-
-        String sql = "insert into students values(?,?,?)";
-        PreparedStatement st= con.prepareStatement(sql);
-        st.setInt(1,99);
-        st.setString(2,"Ayush");
-        st.setInt(3,2);
-        st.execute();
-
+        String url ="jdbc:mysql://127.0.0.1:3306/SpringBoot";
+        String uname="root";
+        String password = "Ayush@39";
+        Connection con = DriverManager.getConnection(url,uname,password);
+        System.out.println("Connection Created");
+        Statement st = con.createStatement();
+        String sql = "select * from students where id =";
 //        System.out.println(done);
-//        for(int i=0;i<=50;i++){
-//            ResultSet rs= st.executeQuery(sql+i);
-//            if(rs.next()) System.out.println(i+")"+rs.getString("name"));
-//        }
-
+        for(int i=1;i<=50;i++){
+            ResultSet rs= st.executeQuery(sql+i);
+            if(rs.next()) System.out.println(i+")"+rs.getString("name"));
+        }
+        String sql2= "insert into students(name,age,email) values(?,?,?)";
+        PreparedStatement ps = con.prepareStatement(sql2);
+        ps.setString(1,"Kushal");
+        ps.setInt(2,22);
+        ps.setString(3,"ayush@gmail.com");
+        ps.execute();
         //System.out.println(rs.next());
         con.close();
         System.out.println("Connection closed");
